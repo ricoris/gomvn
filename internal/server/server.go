@@ -20,7 +20,7 @@ func New(conf *config.App, ps *service.PathService, storage *service.Storage, us
 	app.Settings.IdleTimeout = time.Second * 5
 	app.Settings.DisableStartupMessage = true
 	app.Settings.Templates = html.New("./views", ".html")
-
+        app.Settings.BodyLimit = 90 * 1024 *1024
 	app.Use(compression.New())
 	app.Use(logger.New())
 
